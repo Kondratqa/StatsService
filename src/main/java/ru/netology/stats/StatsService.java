@@ -7,8 +7,8 @@ public class StatsService {
         StatsService service = new StatsService();
 
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int sum = service.sum(sales);
-        int avg = service.avg(sales);
+        long sum = service.sum(sales);
+        long avg = service.avg(sales);
         int maxMonth = service.maxMonth(sales);
         int minMonth = service.minMonth(sales);
         int totalMinSales = service.totalMinSales(sales);
@@ -23,11 +23,11 @@ public class StatsService {
 
     }
 
-    public int sum(long[] sales) {
+    public long sum(long[] sales) {
 
-        int sum = 0;
+        long sum = 0;
         for (int index = 0; index < sales.length; index++) {
-            sum = (int) (sum + sales[index]);
+            sum = sum + sales[index];
 
         }
 
@@ -35,8 +35,8 @@ public class StatsService {
 
     }
 
-    public int avg(long[] sales) {
-        return sum(sales) / (sales.length);
+    public long avg(long[] sales) {
+        return sum(sales) / sales.length;
 
     }
 
@@ -71,7 +71,7 @@ public class StatsService {
     }
 
     public int totalMinSales(long[] sales) {
-        int avg = avg(sales);
+        long avg = avg(sales);
         int count = 0;
         for (int index = 0; index < sales.length; index++ ) {
             if (sales[index] < avg) {
@@ -82,7 +82,7 @@ public class StatsService {
     }
 
     public int totalMaxSales(long[] sales) {
-        int avg = avg(sales);
+        long avg = avg(sales);
         int count = 0;
         for (int index = 0; index < sales.length; index++ ) {
             if (sales[index] > avg) {
